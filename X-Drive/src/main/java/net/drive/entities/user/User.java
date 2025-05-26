@@ -20,9 +20,9 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //Primärschlüssel (Primary Key) einer Datenbanktabelle automatisch 
-	Long id;
-	String userName;
-	String passwort;
+	private Long id;
+	private String userName;
+	private String passwort;
 	
     @Enumerated(EnumType.STRING)
     private Rolle role;
