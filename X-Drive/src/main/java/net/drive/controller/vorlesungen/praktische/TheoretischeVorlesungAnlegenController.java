@@ -20,6 +20,6 @@ public class TheoretischeVorlesungAnlegenController {
 
 	@PostMapping
 	public TheoretischeVorlesung vorlesungAnlegen(@RequestBody TheoretischeVorlesung theoretischeVorlesung) {
-		return theoretischeVorlesungAnlegen.vorlesungAnlegen(theoretischeVorlesung);
+		return theoretischeVorlesungAnlegen.vorlesungAnlegen(theoretischeVorlesung, null);
 	}
 }
