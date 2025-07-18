@@ -12,7 +12,7 @@ import net.drive.entities.user.User;
 import net.drive.services.login.aussensicht.ILoginService;
 
 @Controller
-@RequestMapping("/api/auth")
+@RequestMapping("/api")
 public class LoginController {
 	
 	private final ILoginService loginService;
