@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const modules = [
-{ id: 1, title: "Fahrschülerverwaltung", description: "Verwaltung der Fahrschülerdaten und -profile", link: "/schuler-management" },
+{ id: 1, title: "Fahrschülerverwaltung", description: "Verwaltung der Fahrschülerdaten und -profile", link: "/schueler-management" },
 { id: 2, title: "Benutzerverwaltung", description: "Fahrschüler-, Fahrlehrer- und Administratorverwaltung", link: "/user-management" },
 { id: 3, title: "Stundenplanung und Kalender", description: "Theorie- & Praxisunterricht, Kalenderverwaltung", link: "/schedule" },
 { id: 4, title: "Reservierungssystem", description: "Unterrichtsreservierung, Fahrlehrer- & Fahrzeugausswahl", link: "/reservation" },
@@ -25,7 +25,7 @@ function HomePage() {
     <div style={{ fontFamily: "Arial, sans-serif" }}>
       {/* Navigation Bar */}
       <nav style={{
-        backgroundColor: "#004080",
+        backgroundColor: "#174bd1ff",
         color: "white",
         padding: "1rem 2rem",
         display: "flex",
@@ -60,8 +60,6 @@ function HomePage() {
       {/* Ana içerik */}
       <main style={{ padding: "2rem" }}>
         <h1 style={{ textAlign: "center" }}>
-          {language === "de" && "Willkommen auf der Startseite!"}
-          {language === "en" && "Welcome to the Homepage!"}
         </h1>
 
         <div
@@ -146,7 +144,7 @@ function ModuleCard({ module, language }) {
       7: "Erinnerungen & Lehrer-Nachrichten",
       8: "Fahrzeugverwaltung und Wartung",
       9: "Fortschrittsberichte & Leistungsüberwachung",
-      10: "Unterstützung für Deutsch, Türkisch & Englisch",
+      10: "Unterstützung für Deutsch & Englisch",
     },
     en: {
       1: "Management of student driver data and profiles",
@@ -158,7 +156,7 @@ function ModuleCard({ module, language }) {
       7: "Reminders & instructor messaging",
       8: "Vehicle tracking and maintenance",
       9: "Progress reports & performance tracking",
-      10: "Support for German, Turkish & English",
+      10: "Support for German & English",
     },
   };
 
