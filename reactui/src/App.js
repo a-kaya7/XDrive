@@ -2,13 +2,27 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import HomePage from "./components/HomePage/HomePage";
+import Administration from "./components/Administration/Administration";
+import AdministrationAllgemein from "./components/Administration/AdministrationAllgemein";
+import Benutzergruppe from "./components/Administration/Benutzergruppe";
+import Benutzergruppeneuanlage from "./components/Administration/Benutzergruppeneuanlage";
+import PortalLayout from "./components/PortalLayout/PortalLayout";
 
 function App() {
   return (
-     <Router>
+    <Router>
       <Routes>
+        {/* Login Layout'u ayrı tutuyoruz */}
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<HomePage />} />
+
+        {/* Tüm diğer sayfalar PortalLayout içinde */}
+        <Route element={<PortalLayout />}>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/administration" element={<Administration />} />
+          <Route path="/administrationallgemein" element={<AdministrationAllgemein />} />
+          <Route path="/benutzergruppe" element={<Benutzergruppe />} />
+          <Route path="/benutzergruppeneuanlage" element={<Benutzergruppeneuanlage />} />
+        </Route>
       </Routes>
     </Router>
   );
