@@ -24,9 +24,9 @@ public class LoginController {
 	 public ResponseEntity<String> login(@RequestBody User user) {
 	        boolean success = loginService.login(user.getUserName(), user.getPasswort());
 	        if (success) {
-	            return ResponseEntity.ok("Login erfolgreich ✅");
+	            return ResponseEntity.ok("Login erfolgreich");
 	        } else {
-	            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Ungültige Anmeldedaten ❌");
+	            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Ungültige Anmeldedaten");
 	        }
 	    }
 
