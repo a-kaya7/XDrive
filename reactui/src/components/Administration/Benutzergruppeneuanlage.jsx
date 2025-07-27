@@ -36,7 +36,7 @@ const BenutzergruppeNeuanlage = () => {
 
       setMessage({ text: "Benutzergruppe erfolgreich gespeichert!", type: "success" });
       // Örn. 1 sn sonra geri dön
-      setTimeout(() => navigate("/benutzergruppen"), 1000);
+      setTimeout(() => navigate("/benutzergruppe"), 1000);
     } catch (err) {
       setMessage({
         text: err.response?.data || "Fehler aufgetreten",

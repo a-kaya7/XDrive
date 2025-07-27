@@ -21,7 +21,7 @@ export default function PortalLayout() {
         </div>
         <div style={right}>
           <button onClick={handleLogout} style={logoutBtn}>
-            Abmelden
+            Ausloggen
           </button>
         </div>
       </nav>

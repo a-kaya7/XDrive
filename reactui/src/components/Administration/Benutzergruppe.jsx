@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { FaUserEdit } from "react-icons/fa";
 
 const PRIMARY_COLOR = "#174bd1ff";
 
@@ -14,10 +16,20 @@ const BenutzergruppenListe = () => {
 
   const fetchBenutzergruppen = async () => {
     try {
-      const response = await axios.get("/benutzergruppen");
+      const response = await axios.get("/api/benutzergruppen");
       setBenutzergruppen(response.data);
     } catch (err) {
       console.error("Fehler beim Laden der Benutzergruppen:", err);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("Soll diese Benutzergruppe gelöscht werden?")) return;
+    try {
+      await axios.delete(`/api/benutzergruppen/${id}`);
+      setBenutzergruppen((prev) => prev.filter((g) => g.id !== id));
+    } catch (e) {
+      alert("Löschen fehlgeschlagen!");
     }
   };
 
@@ -39,17 +51,41 @@ const BenutzergruppenListe = () => {
               <td style={tdStyle}>{item.beschreibung}</td>
               <td style={tdStyle}>{item.freigabe ? "Ja" : "Nein"}</td>
               <td style={tdStyle}>
+                {/* Gruppe bearbeiten */}
                 <button
+                  type="button"
                   style={iconButton}
                   onClick={() => navigate(`/benutzergruppeneuanlage/${item.id}`)}
+                  aria-label="Benutzergruppe bearbeiten"
+                  title="Benutzergruppe bearbeiten"
                 >
-                  ✏️ Bearbeiten
+                  <FiEdit size={20} />
                 </button>
+
+                {/* Löschen */}
                 <button
+                  type="button"
                   style={{ ...iconButton, marginLeft: "0.5rem" }}
-                  onClick={() => alert(`Löschen ${item.id}`)}
+                  onClick={() => handleDelete(item.id)}
+                  aria-label="Löschen"
+                  title="Löschen"
                 >
-                  🗑️ Löschen
+                  <FiTrash2 size={20} />
+                </button>
+
+                {/* Benutzer bearbeiten */}
+                <button
+                  type="button"
+                  style={{ ...iconButton, marginLeft: "0.5rem" }}
+                  onClick={() =>
+                    navigate(`/benutzerbearbeiten/${item.id}`, {
+                      state: { gruppeName: item.benutzergruppe },
+                    })
+                  }
+                  aria-label="Benutzer bearbeiten"
+                  title="Benutzer bearbeiten"
+                >
+                  <FaUserEdit size={20} />
                 </button>
               </td>
             </tr>
@@ -57,8 +93,14 @@ const BenutzergruppenListe = () => {
         </tbody>
       </table>
 
-      {/* Butonlar sayfanın alt sağ köşesinde */}
+      {/* Alt sağ köşe butonları */}
       <div style={buttonContainer}>
+        <button
+    style={buttonPrimary}
+    onClick={() => navigate(-1)}  // Zurück butonu için navigate(-1)
+       >
+         Zurück
+       </button>
         <button
           style={buttonPrimary}
           onClick={() => navigate("/benutzergruppeneuanlage")}
@@ -126,7 +168,7 @@ const iconButton = {
   border: "none",
   color: PRIMARY_COLOR,
   cursor: "pointer",
-  fontSize: "1rem",
+  fontSize: "1.2rem",
   padding: 0,
 };
 
