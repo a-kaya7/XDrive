@@ -1,0 +1,110 @@
+.benutzer-tabelle {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.benutzer-tabelle th,
+.benutzer-tabelle td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.benutzer-tabelle th {
+  background-color: #f9fafb;
+  color: #374151;
+  font-weight: 600;
+}
+
+.benutzer-tabelle td {
+  color: #4b5563;
+}
+
+.action-button {
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  background-color:  #1d4ed8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: #1e4ed8;
+}
+
+.action-button.danger {
+  background-color: #ef4444;
+}
+
+.action-button.danger:hover {
+  background-color: #dc2626;
+}
+.button-row {
+  display: flex;
+  justify-content: flex-end; /* sağa yasla */
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-right: 2rem;
+}
+
+.main-button {
+  background-color:  #1d4ed8;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.main-button.secondary {
+  background-color:  #1d4ed8;
+}
+
+.main-button:hover {
+  background-color: #1d4ed8;
+}
+
+.main-button.secondary:hover {
+  background-color:  #1d4ed8;
+}
+.icon-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-wrapper {
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+.edit-icon {
+  color: #2563eb;
+}
+
+.edit-icon:hover {
+  color: #1e40af;
+}
+
+.delete-icon {
+  color: #ef4444;
+}
+
+.delete-icon:hover {
+  color: #b91c1c;
+}
