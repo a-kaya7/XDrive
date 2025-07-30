@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const modules = [
-  { id: 1, title: "Administration", description: "Fahrschüler-, Fahrlehrer- und Administratorverwaltung", link: "/administration" },
+  { id: 1, title: "Administration", description: "Allgemein, Recht, Import/Export, Drucken, Wartungsmodus", link: "/administration" },
   { id: 2, title: "Fahrschülerverwaltung", description: "Verwaltung der Fahrschülerdaten und -profile", link: "/schueler-management" },
   { id: 3, title: "Stundenplanung und Kalender", description: "Theorie- & Praxisunterricht, Kalenderverwaltung", link: "/schedule" },
   { id: 4, title: "Reservierungssystem", description: "Unterrichtsreservierung, Fahrlehrer- & Fahrzeugausswahl", link: "/reservation" },
@@ -40,6 +40,7 @@ function HomePage() {
 }
 
 function ModuleCard({ module }) {
+  const lines = module.description.split(",");
   return (
     <Link
       to={module.link}
@@ -57,7 +58,11 @@ function ModuleCard({ module }) {
       onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
     >
       <h2 style={{ marginBottom: "0.5rem" }}>{module.title}</h2>
-      <p style={{ fontSize: "0.9rem", color: "#555" }}>{module.description}</p>
+      <div style={{ fontSize: "0.9rem", color: "#555" }}>
+        {lines.map((line, index) => (
+          <div key={index}>{line.trim()}</div> // her satır alt alta
+        ))}
+      </div>
     </Link>
   );
 }

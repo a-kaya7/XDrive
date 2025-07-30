@@ -8,6 +8,9 @@ import Benutzergruppe from "./components/Administration/Benutzergruppe";
 import Benutzergruppeneuanlage from "./components/Administration/Benutzergruppeneuanlage";
 import Benutzerbearbeiten from "./components/Administration/Benutzerbearbeiten";
 import Benutzerneuanlage from "./components/Administration/Benutzerneuanlage";
+import Institut from "./components/Administration/Institut";
+import Institutneuanlage from "./components/Administration/Institutneuanlage";
+import Institutbearbeiten from "./components/Administration/Institutbearbeiten";
 import PortalLayout from "./components/PortalLayout/PortalLayout";
 
 function App() {
@@ -26,6 +29,9 @@ function App() {
           <Route path="/benutzergruppeneuanlage" element={<Benutzergruppeneuanlage />} />
           <Route path="/benutzerbearbeiten/:id" element={<Benutzerbearbeiten />} />
           <Route path="/benutzerneuanlage" element={<Benutzerneuanlage />} />
+          <Route path="/institute" element={<Institut />} />
+          <Route path="/institutbearbeiten/:idname" element={<Institutbearbeiten />} />
+          <Route path="/institutneuanlage" element={<Institutneuanlage />} />
         </Route>
       </Routes>
     </Router>

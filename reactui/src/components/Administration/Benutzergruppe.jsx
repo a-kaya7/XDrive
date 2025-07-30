@@ -35,6 +35,7 @@ const BenutzergruppenListe = () => {
 
   return (
     <div style={page}>
+      <h2 style={titleStyle}>Benutzergruppen</h2>
       <table style={tableStyle}>
         <thead>
           <tr>
@@ -55,7 +56,9 @@ const BenutzergruppenListe = () => {
                 <button
                   type="button"
                   style={iconButton}
-                  onClick={() => navigate(`/benutzergruppeneuanlage/${item.id}`)}
+                  onClick={() =>
+                    navigate(`/benutzergruppeneuanlage/${item.id}`)
+                  }
                   aria-label="Benutzergruppe bearbeiten"
                   title="Benutzergruppe bearbeiten"
                 >
@@ -93,14 +96,14 @@ const BenutzergruppenListe = () => {
         </tbody>
       </table>
 
-      {/* Alt sağ köşe butonları */}
+      {/* Butonları tablonun altına sağa hizala */}
       <div style={buttonContainer}>
         <button
-    style={buttonPrimary}
-    onClick={() => navigate(-1)}  // Zurück butonu için navigate(-1)
-       >
-         Zurück
-       </button>
+          style={buttonPrimary}
+          onClick={() => navigate(-1)}
+        >
+          Zurück
+        </button>
         <button
           style={buttonPrimary}
           onClick={() => navigate("/benutzergruppeneuanlage")}
@@ -125,11 +128,17 @@ const page = {
   position: "relative",
 };
 
+const titleStyle = {
+  fontSize: "1.5rem",
+  fontWeight: "bold",
+  marginBottom: "1rem",
+  color: PRIMARY_COLOR,
+};
+
 const buttonContainer = {
-  position: "fixed",
-  bottom: "1.5rem",
-  right: "1.5rem",
+  marginTop: "1rem",
   display: "flex",
+  justifyContent: "flex-end",
   gap: "1rem",
 };
 
