@@ -26,7 +26,7 @@ const BenutzergruppeNeuanlage = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("/api/benutzergruppeneuanlage", // doğru endpoint
+       await axios.post("/api/benutzergruppeneuanlage", // doğru endpoint
         {
           benutzergruppe: benutzergruppe,
           beschreibung: beschreibung, // doğru field adı

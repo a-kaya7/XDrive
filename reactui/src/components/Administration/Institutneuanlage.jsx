@@ -1,0 +1,226 @@
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+const PRIMARY_COLOR = "#174bd1ff";
+
+const InstitutNeuanlage = () => {
+  // Form alanları
+  const [idname, setIdname] = useState("");
+  const [institutsname, setInstitutsname] = useState("");
+  const [bezeichnung, setBezeichnung] = useState("");
+  const [bankleitzahl, setBankleitzahl] = useState("");
+  const [bic, setBic] = useState("");
+  const [bwl, setBwl] = useState("");
+  const [locale, setLocale] = useState("");
+
+  // UI state
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState({ text: "", type: "" });
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage({ text: "", type: "" });
+
+    // Basit validasyonlar
+    if (!idname.trim()) return setError("ID ist erforderlich!");
+    if (!institutsname.trim()) return setError("Institutsname ist erforderlich!");
+    if (!bezeichnung.trim()) return setError("Bezeichnung ist erforderlich!");
+
+    setError("");
+    setLoading(true);
+
+    try {
+      await axios.post("/api/institute", {
+        idname,
+        institutsname,
+        bezeichnung,
+        bankleitzahl,
+        bic,
+        bwl,
+        locale,
+      });
+
+      setMessage({ text: "Institut erfolgreich gespeichert!", type: "success" });
+      setTimeout(() => navigate("/institute"), 1000);
+    } catch (err) {
+      setMessage({
+        text: err.response?.data?.message || "Fehler aufgetreten",
+        type: "error",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div style={page}>
+      <div style={container}>
+        <h2 style={title}>Neuanlage eines Instituts</h2>
+
+        <form onSubmit={handleSubmit}>
+          {/* Grunddaten */}
+          <h3 style={sectionTitle}>Grunddaten</h3>
+
+          <div style={field}>
+            <label style={label}>
+              ID <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="text"
+              value={idname}
+              onChange={(e) => setIdname(e.target.value)}
+              style={input}
+            />
+          </div>
+
+          <div style={field}>
+            <label style={label}>
+              Institutsname <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="text"
+              value={institutsname}
+              onChange={(e) => setInstitutsname(e.target.value)}
+              style={input}
+            />
+          </div>
+
+          <div style={field}>
+            <label style={label}>
+              Bezeichnung <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="text"
+              value={bezeichnung}
+              onChange={(e) => setBezeichnung(e.target.value)}
+              style={input}
+            />
+          </div>
+
+          <div style={field}>
+            <label style={label}>Bankleitzahl</label>
+            <input
+              type="text"
+              value={bankleitzahl}
+              onChange={(e) => setBankleitzahl(e.target.value)}
+              style={input}
+            />
+          </div>
+
+          <div style={field}>
+            <label style={label}>BIC</label>
+            <input
+              type="text"
+              value={bic}
+              onChange={(e) => setBic(e.target.value)}
+              style={input}
+            />
+          </div>
+
+          <div style={field}>
+            <label style={label}>BWL</label>
+            <input
+              type="text"
+              value={bwl}
+              onChange={(e) => setBwl(e.target.value)}
+              style={input}
+            />
+          </div>
+
+          <div style={field}>
+            <label style={label}>Locale</label>
+            <input
+              type="text"
+              value={locale}
+              onChange={(e) => setLocale(e.target.value)}
+              style={input}
+            />
+          </div>
+
+          {/* Mesaj & Hata */}
+          {error && <div style={errorStyle}>{error}</div>}
+
+          {message.text && (
+            <div
+              style={{
+                color: message.type === "error" ? "red" : "green",
+                marginBottom: "1rem",
+              }}
+            >
+              {message.text}
+            </div>
+          )}
+
+          <div style={buttonsRow}>
+            <button type="submit" style={buttonPrimary} disabled={loading}>
+              {loading ? "Speichere..." : "Speichern"}
+            </button>
+            <button
+              type="button"
+              style={buttonSecondary}
+              onClick={() => navigate(-1)}
+            >
+              Zurück
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+const page = { fontFamily: "Arial, sans-serif", padding: "2rem" };
+const container = {
+  maxWidth: 600,
+  margin: "0 auto",
+  padding: "2rem",
+  border: "none",
+  boxShadow: "none",
+  background: "transparent",
+};
+const title = { textAlign: "center", color: PRIMARY_COLOR, marginBottom: "1.5rem" };
+
+const sectionTitle = {
+  color: PRIMARY_COLOR,
+  margin: "1.5rem 0 0.8rem 0",
+  fontSize: "1.05rem",
+};
+
+const field = { marginBottom: "1.5rem" };
+const label = { display: "block", marginBottom: "0.3rem" };
+
+const input = {
+  width: "100%",
+  padding: "0.5rem 0",
+  border: "none",
+  borderBottom: "2px solid #ccc",
+  fontSize: "1rem",
+  outline: "none",
+};
+
+const errorStyle = {
+  color: "red",
+  fontSize: "0.9rem",
+  marginBottom: "0.8rem",
+};
+
+const buttonsRow = { display: "flex", gap: "1rem", justifyContent: "flex-start" };
+
+const buttonBase = {
+  backgroundColor: PRIMARY_COLOR,
+  color: "#fff",
+  padding: "0.5rem 1.5rem",
+  border: "none",
+  borderRadius: "4px",
+  cursor: "pointer",
+  fontSize: "1rem",
+};
+
+const buttonPrimary = { ...buttonBase };
+const buttonSecondary = { ...buttonBase };
+
+export default InstitutNeuanlage;
