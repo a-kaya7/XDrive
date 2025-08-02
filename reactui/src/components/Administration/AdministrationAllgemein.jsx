@@ -3,14 +3,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const modules = [
-  { id: 1, title: "Institut", description: "Institute verwalten", link: "/institute" },
-  { id: 2, title: "Mandanten/Gruppen", description: "Admin-Bereich", link: "/schueler-management" },
-  { id: 3, title: "Benutzer/Rollen", description: "Admin-Bereich", link: "/benutzergruppe" },
-  { id: 4, title: "Organisationseinheiten", description: "Admin-Bereich", link: "/schueler-management" },
-  { id: 5, title: "Systemfunktion", description: "Admin-Bereich", link: "/schueler-management" },
-  { id: 6, title: "Protokolierung", description: "Admin-Bereich", link: "/schueler-management" },
-  { id: 7, title: "Scorecard", description: "Admin-Bereich", link: "/schueler-management" },
-  { id: 8, title: "System", description: "Admin-Bereich", link: "/schueler-management" },
+  { id: 1, title: "Institut", description: "Benutzergruppe verwalten", link: "/benutzergruppe" },
+  { id: 2, title: "Mandanten/Gruppe", description: "Benutzergruppe verwalten", link: "/benutzergruppe" },
+  { id: 3, title: "Mandant", description: "Admin-Bereich", link: "/schueler-management" },
+  { id: 4, title: "Benutzer/Rollen", description: "Admin-Bereich", link: "/benutzergruppe" },
+  { id: 5, title: "Organisationseinheiten", description: "Admin-Bereich", link: "/schueler-management" },
+  { id: 6, title: "Systemfunktion", description: "Admin-Bereich", link: "/schueler-management" },
+  { id: 7, title: "Protokolierung", description: "Admin-Bereich", link: "/schueler-management" },
+  { id: 8, title: "Scorecard", description: "Admin-Bereich", link: "/schueler-management" },
+  { id: 9, title: "System", description: "Admin-Bereich", link: "/schueler-management" },
 
 ];
 
