@@ -19,4 +19,10 @@ public class Adminbenutzergruppeneuanlage {
 	private String benutzergruppe;
 	private String beschreibung;
 	private boolean freigabe;
+	
+    public Adminbenutzergruppeneuanlage() {
+        // für JPA; 
+    }
+
+
 }
