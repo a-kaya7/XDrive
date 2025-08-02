@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const modules = [
   { id: 1, title: "Allgemein", description: "Institut, Mandanten/Gruppe, Mandant, Benutzer/Rollen, Organisationseinheiten, Systemfunktion, Protokolierung, Scorecard, System ", link: "/administrationallgemein" },
-  { id: 2, title: "Recht", description: "Benutzergruppe verwalten, test", link: "/benutzergruppe" },
+  { id: 2, title: "Recht", description: "Benutzergruppe verwalten", link: "/benutzergruppe" },
   { id: 3, title: "Import/Export", description: "Admin-Bereich", link: "/schueler-management" },
   { id: 4, title: "Drucken", description: "Admin-Bereich", link: "/schueler-management" },
   { id: 5, title: "Wartungsmodus", description: "Admin-Bereich", link: "/schueler-management" },
@@ -34,7 +34,6 @@ function Administration() {
 }
 
 function ModuleCard({ module }) {
-  const lines = module.description.split(",");
   return (
     <Link
       to={module.link}
@@ -51,12 +50,8 @@ function ModuleCard({ module }) {
       onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
       onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
     >
-       <h2 style={{ marginBottom: "0.5rem" }}>{module.title}</h2>
-      <div style={{ fontSize: "0.9rem", color: "#555" }}>
-        {lines.map((line, index) => (
-          <div key={index}>{line.trim()}</div> // her satır alt alta
-        ))}
-      </div>
+      <h2 style={{ marginBottom: "0.5rem" }}>{module.title}</h2>
+      <p style={{ fontSize: "0.9rem", color: "#555" }}>{module.description}</p>
     </Link>
   );
 }

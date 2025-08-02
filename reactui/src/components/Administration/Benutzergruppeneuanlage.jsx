@@ -26,7 +26,7 @@ const BenutzergruppeNeuanlage = () => {
     setLoading(true);
 
     try {
-       await axios.post("/api/benutzergruppeneuanlage", // doğru endpoint
+      const response = await axios.post("/api/benutzergruppeneuanlage", // doğru endpoint
         {
           benutzergruppe: benutzergruppe,
           beschreibung: beschreibung, // doğru field adı
@@ -36,7 +36,7 @@ const BenutzergruppeNeuanlage = () => {
 
       setMessage({ text: "Benutzergruppe erfolgreich gespeichert!", type: "success" });
       // Örn. 1 sn sonra geri dön
-      setTimeout(() => navigate("/benutzergruppe"), 1000);
+      setTimeout(() => navigate("/benutzergruppen"), 1000);
     } catch (err) {
       setMessage({
         text: err.response?.data || "Fehler aufgetreten",
