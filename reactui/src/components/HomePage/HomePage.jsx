@@ -12,16 +12,14 @@ const modules = [
   { id: 7, title: "Benachrichtigungen und Nachrichten", description: "Unterrichtserinnerungen und Fahrlehrernachrichten", link: "/notifications" },
   { id: 8, title: "Fahrzeug-& Geräteverwaltung", description: "Fahrzeugverfolgung und Wartungsstatus", link: "/vehicle-management" },
   { id: 9, title: "Berichte & Statistiken", description: "Fortschrittsberichte und Leistungskontrolle", link: "/reports" },
+  { id: 9, title: "Aufgabenübersicht", description: "Die Aufgaben", link: "/aufgabenübersicht" },
   { id: 10, title: "Mehrsprachige Unterstützung", description: "Sprachoptionen: Deutsch, und Englisch", link: "/language" },
 ];
 
 function HomePage() {
   return (
     <div style={{ fontFamily: "Arial, sans-serif" }}>
-      {/* Ana içerik */}
       <main style={{ padding: "2rem" }}>
-        
-
         <div
           style={{
             marginTop: "2rem",
