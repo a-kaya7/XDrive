@@ -2,7 +2,8 @@ package net.drive.entities.datentypen;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Embeddable;
+
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,9 +12,13 @@ import lombok.Setter;
 @Setter
 public class Adresse implements Serializable {
 	
+	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	  private String strasse;
-	  private String hausnummer;
 	  private String plz;
-	  private String stadt;
+	  private String ort;
+	  private String land;
 
 }

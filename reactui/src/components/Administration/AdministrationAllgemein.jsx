@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const modules = [
   { id: 1, title: "Institut", description: "Institute verwalten", link: "/institute" },
-  { id: 2, title: "Mandanten/Gruppen", description: "Admin-Bereich", link: "/schueler-management" },
+  { id: 2, title: "Mandanten", description: "Admin-Bereich", link: "/mandanten" },
   { id: 3, title: "Benutzer/Rollen", description: "Admin-Bereich", link: "/benutzergruppe" },
   { id: 4, title: "Organisationseinheiten", description: "Admin-Bereich", link: "/schueler-management" },
   { id: 5, title: "Systemfunktion", description: "Admin-Bereich", link: "/schueler-management" },

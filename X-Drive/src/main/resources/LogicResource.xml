@@ -2,4 +2,5 @@
 <messages>
     <IdnameExistiert>Ein Institut mit diesem IDName existiert bereits.</IdnameExistiert>
     <InsitutBearbeiten>ID-Name darf nicht leer sein.</InsitutBearbeiten>
+    <MandantExistiert>Mandant ist schon vorhanden</MandantExistiert>
 </messages>

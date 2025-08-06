@@ -2,11 +2,12 @@ package net.drive.services.administration.allgemein.innensicht;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.drive.config.LogicResource;
-import net.drive.entities.administration.allgemein.Admininstitutneuanlage;
+import net.drive.entities.administration.allgemein.Institut;
 import net.drive.repository.administration.IAdmininstitutRepository;
 import net.drive.services.administration.allgemein.aussensicht.IAdmininstitutbearbeitenService;
 
@@ -23,8 +24,8 @@ public class AdmininstitutbearbeitenService implements IAdmininstitutbearbeitenS
 	private LogicResource logicResource;
 	
 	@Override
-	public Admininstitutneuanlage updateInstitut(String idname, Admininstitutneuanlage updatedData) {
-	    Admininstitutneuanlage bearbeitung = repository.findByIdname(idname)
+	public Institut updateInstitut(String idname, Institut updatedData) {
+		Institut bearbeitung = repository.findByIdname(idname)
 	        .orElseThrow(() -> new RuntimeException("Institut nicht gefunden"));
 	    if(idname == null || idname.trim().isEmpty()) {
 	    	throw new IllegalArgumentException(logicResource.getMessage("InsitutBearbeiten"));
@@ -43,7 +44,7 @@ public class AdmininstitutbearbeitenService implements IAdmininstitutbearbeitenS
 
 
 	@Override
-	public Admininstitutneuanlage getInstitutByIdname(String idname) {
+	public Institut getInstitutByIdname(String idname) {
 		
 		return repository.findByIdname(idname)
 	            .orElseThrow(() -> new RuntimeException("Institut nicht gefunden"));

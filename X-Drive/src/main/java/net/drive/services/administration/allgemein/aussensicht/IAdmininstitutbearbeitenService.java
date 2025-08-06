@@ -1,13 +1,11 @@
 package net.drive.services.administration.allgemein.aussensicht;
 
-import java.util.List;
 
-
-import net.drive.entities.administration.allgemein.Admininstitutneuanlage;
+import net.drive.entities.administration.allgemein.Institut;
 
 public interface IAdmininstitutbearbeitenService {
  
-	Admininstitutneuanlage updateInstitut(String idname, Admininstitutneuanlage updatedData);
-	Admininstitutneuanlage getInstitutByIdname(String idname);
+	Institut updateInstitut(String idname, Institut updatedData);
+	Institut getInstitutByIdname(String idname);
 
 }

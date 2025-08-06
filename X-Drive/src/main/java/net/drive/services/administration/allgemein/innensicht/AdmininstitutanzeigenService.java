@@ -24,6 +24,7 @@ public class AdmininstitutanzeigenService implements IAdmininstitutanzeigenServi
 		
 		
 		return repo.findAll().stream().map(entity -> new InstitutListenDTO(
+				entity.getId(),
 				entity.getIdname(),
 				entity.getBezeichnung(),
 				entity.getInstitutsname())).collect(Collectors.toList());

@@ -2,9 +2,10 @@ package net.drive.services.administration.allgemein.innensicht;
 
 import java.util.Optional;
 
+
 import org.springframework.stereotype.Service;
 
-import net.drive.entities.administration.allgemein.Admininstitutneuanlage;
+import net.drive.entities.administration.allgemein.Institut;
 import net.drive.repository.administration.IAdmininstitutRepository;
 import net.drive.services.administration.allgemein.aussensicht.IAdmininstitutloeschenService;
 
@@ -20,7 +21,7 @@ public class AdmininstituloeschenService implements IAdmininstitutloeschenServic
 	@Override
 	public void deleteInstitutByIdname(String idname) {
 	
-		Optional<Admininstitutneuanlage> optInstitut = InsitutRepo.findByIdname(idname);
+		Optional<Institut> optInstitut = InsitutRepo.findByIdname(idname);
 		if(optInstitut.isEmpty() ) {
 			throw new RuntimeException("Kein Institut mit IDName: " + idname);
 		}

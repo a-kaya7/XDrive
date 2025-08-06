@@ -2,6 +2,7 @@ package net.drive.controller.administration.allgemein;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.drive.entities.administration.allgemein.Admininstitutneuanlage;
+import net.drive.entities.administration.allgemein.Institut;
 import net.drive.repository.administration.IAdmininstitutRepository;
 import net.drive.services.administration.allgemein.aussensicht.IAdmininstitutbearbeitenService;
 
@@ -29,17 +30,17 @@ public class AdmininstitutbearbeitenController {
 	}
 	
 	@GetMapping("/institute/{idname}")
-    public ResponseEntity<Admininstitutneuanlage> getInstitut(@PathVariable("idname") String idname) {
-        Admininstitutneuanlage result = institut.getInstitutByIdname(idname);
+    public ResponseEntity<Institut> getInstitut(@PathVariable("idname") String idname) {
+		Institut result = institut.getInstitutByIdname(idname);
         return ResponseEntity.ok(result);
     }
 	
 	@PutMapping("/institute/{idname}")
-	public ResponseEntity<Admininstitutneuanlage> updateInstitut(
+	public ResponseEntity<Institut> updateInstitut(
 	        @PathVariable("idname") String idname,
-	        @RequestBody Admininstitutneuanlage updatedInstitut) {
+	        @RequestBody Institut updatedInstitut) {
 
-	    Admininstitutneuanlage updated = institut.updateInstitut(idname, updatedInstitut);
+		Institut updated = institut.updateInstitut(idname, updatedInstitut);
 	    return ResponseEntity.ok(updated);
 	}
 
