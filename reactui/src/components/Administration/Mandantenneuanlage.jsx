@@ -12,7 +12,7 @@ const MandantenNeuanlage = () => {
 
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
-  const [straße, setStraße] = useState("");
+  const [strasse, setStrasse] = useState("");
   const [plz, setPlz] = useState("");
   const [ort, setOrt] = useState("");
   const [land, setLand] = useState("");
@@ -56,16 +56,18 @@ const MandantenNeuanlage = () => {
       await axios.post("/api/mandantenneuanlage", {
         idname,
         bezeichnung,
-        institut: {id: Number(institut)},
+        institut:  Number(institut),
         locale,
         name1,
         name2,
-        straße,
-        plz,
-        ort,
-        land,
         telefon,
         email,
+        adresse:{
+            strasse,
+            plz,
+            ort,
+            land
+        }
       });
 
       setMessage({ text: "Mandant erfolgreich gespeichert!", type: "success" });
@@ -104,7 +106,7 @@ const MandantenNeuanlage = () => {
           </div>
 
           <div style={field}>
-            <label style={label}>Bezeichnung</label>
+            <label style={label}>Bezeichnung <span style={{color: "red"}}>*</span></label>
             <input
               type="text"
               value={bezeichnung}
@@ -169,8 +171,8 @@ const MandantenNeuanlage = () => {
             <label style={label}>Straße</label>
             <input
               type="text"
-              value={straße}
-              onChange={(e) => setStraße(e.target.value)}
+              value={strasse}
+              onChange={(e) => setStrasse(e.target.value)}
               style={input}
             />
           </div>

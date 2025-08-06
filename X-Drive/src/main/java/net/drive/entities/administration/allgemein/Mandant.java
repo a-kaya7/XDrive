@@ -31,11 +31,9 @@ public class Mandant {
 	private String bezeichnung;
 	
 	@ManyToOne
-    @JoinColumn(name = "institut_id" , insertable = false, updatable = false)
+    @JoinColumn(name = "institut_id")
     private Institut institut;
 	
-	@Column(name = "institut_id")
-	private Long institutId; 
 	
 	@Column(name ="local")
 	private String locale;
