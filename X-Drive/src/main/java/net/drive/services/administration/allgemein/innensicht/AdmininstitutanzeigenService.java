@@ -9,26 +9,23 @@ import net.drive.dto.administration.InstitutListenDTO;
 import net.drive.repository.administration.IAdmininstitutRepository;
 import net.drive.services.administration.allgemein.aussensicht.IAdmininstitutanzeigenService;
 
-
 @Service
 public class AdmininstitutanzeigenService implements IAdmininstitutanzeigenService {
 
-	private final IAdmininstitutRepository  repo; 
-	
-	public AdmininstitutanzeigenService(IAdmininstitutRepository repo) {
-		this.repo = repo;
-	}
-	
-	@Override
-	public List<InstitutListenDTO> getAllInstitut() {
-		
-		
-		return repo.findAll().stream().map(entity -> new InstitutListenDTO(
-				entity.getId(),
-				entity.getIdname(),
-				entity.getBezeichnung(),
-				entity.getInstitutsname())).collect(Collectors.toList());
-	}
-	
-	
+    private final IAdmininstitutRepository repo;
+
+    public AdmininstitutanzeigenService(IAdmininstitutRepository repo) {
+        this.repo = repo;
+    }
+
+    @Override
+    public List<InstitutListenDTO> getAllInstitut() {
+
+        return repo.findAll().stream().map(entity -> new InstitutListenDTO(
+            entity.getId(),        
+            entity.getIdname(),
+            entity.getBezeichnung(),
+            entity.getInstitutsname()
+        )).collect(Collectors.toList());
+    }
 }

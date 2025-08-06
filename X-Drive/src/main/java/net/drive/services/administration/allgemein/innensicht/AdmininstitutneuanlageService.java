@@ -1,12 +1,11 @@
 package net.drive.services.administration.allgemein.innensicht;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
 import net.drive.config.LogicResource;
 import net.drive.dto.administration.AdmininstitutDTO;
-import net.drive.entities.administration.allgemein.Institut;
+import net.drive.entities.administration.allgemein.Admininstitutneuanlage;
 import net.drive.repository.administration.IAdmininstitutRepository;
 import net.drive.services.administration.allgemein.aussensicht.IAdmininstitutneuanlageService;
 
@@ -15,8 +14,7 @@ public class AdmininstitutneuanlageService implements IAdmininstitutneuanlageSer
 	
 	private final IAdmininstitutRepository repo;
 	
-
-	public AdmininstitutneuanlageService(IAdmininstitutRepository repo ) {
+	public AdmininstitutneuanlageService(IAdmininstitutRepository repo) {
 		this.repo = repo;
 	}
 	
@@ -31,13 +29,13 @@ public class AdmininstitutneuanlageService implements IAdmininstitutneuanlageSer
     	    }
     	}
 
-    	Institut entity = mapToEntity(dto);
-    	Institut saved = repo.save(entity);
+        Admininstitutneuanlage entity = mapToEntity(dto);
+        Admininstitutneuanlage saved = repo.save(entity);
         return mapToDto(saved);
     }
 
-    private Institut mapToEntity(AdmininstitutDTO dto) {
-    	Institut entity = new Institut();
+    private Admininstitutneuanlage mapToEntity(AdmininstitutDTO dto) {
+        Admininstitutneuanlage entity = new Admininstitutneuanlage();
         entity.setId(dto.id());
         entity.setIdname(dto.idname());
         entity.setInstitutsname(dto.institutsname());
@@ -50,17 +48,17 @@ public class AdmininstitutneuanlageService implements IAdmininstitutneuanlageSer
         return entity;
     }
 
-    private AdmininstitutDTO mapToDto(Institut e) {
-    	 return new AdmininstitutDTO(
-    		        e.getId(),
-    		        e.getIdname(),
-    		        e.getInstitutsname(),
-    		        e.getBezeichnung(),
-    		        e.getBankleitzahl(),
-    		        e.getBic(),
-    		        e.getBwl(),
-    		        e.getLocale()
-    		    );
+    private AdmininstitutDTO mapToDto(Admininstitutneuanlage e) {
+    	return new AdmininstitutDTO(
+	        e.getId(),
+	        e.getIdname(),
+	        e.getInstitutsname(),
+	        e.getBezeichnung(),
+	        e.getBankleitzahl(),
+	        e.getBic(),
+	        e.getBwl(),
+	        e.getLocale()
+	    );
     }
 
 }

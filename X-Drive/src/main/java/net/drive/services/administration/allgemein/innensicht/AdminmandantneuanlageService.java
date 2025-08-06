@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import net.drive.config.LogicResource;
 import net.drive.dto.administration.AdmininstitutDTO;
 import net.drive.dto.administration.MandantenDTO;
+import net.drive.entities.administration.allgemein.Admininstitutneuanlage;
 import net.drive.entities.administration.allgemein.Institut;
 import net.drive.entities.administration.allgemein.Mandant;
 import net.drive.repository.administration.IAdmininstitutRepository;
@@ -46,7 +47,7 @@ public class AdminmandantneuanlageService implements IAdminmandantneuanlageServi
             throw new IllegalArgumentException("Institut ID darf nicht null sein");
         }
 
-        Institut institut = institutRepo.findById(dto.institut())
+        Admininstitutneuanlage institut = institutRepo.findById(dto.institut())
                 .orElseThrow(() -> new IllegalArgumentException("Institut nicht gefunden mit Id: " + dto.institut()));
 
         Mandant mandant = new Mandant();
